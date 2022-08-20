@@ -103,7 +103,7 @@ DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::GenerateData()
     queue.push(std::make_pair(0.f, s));
   }
 
-  auto         neighbors = this->GetNeighborOffsets<ImageDimension>();
+  auto         neighbors = this->GetNeighborOffsets();
   auto         deltas = this->GetNeighborDeltas(neighbors, input->GetSpacing());
   const size_t num_neighbors = neighbors.size();
 

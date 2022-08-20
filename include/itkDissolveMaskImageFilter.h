@@ -94,20 +94,23 @@ protected:
   void
   PrintSelf(std::ostream & os, Indent indent) const override;
 
-  template <unsigned int VDim>
-  std::vector<Offset<VDim>>
-  GetNeighborOffsets();
+  template<unsigned int VDim>
+  struct Tag {};
 
-  template <>
+  std::vector<Offset<ImageDimension>>
+  GetNeighborOffsets()
+  {
+	return this->GetNeighborOffsets(Tag<ImageDimension>());
+  }
+
   std::vector<Offset<2>>
-  GetNeighborOffsets<2>()
+  GetNeighborOffsets(Tag<2>)
   {
     return { Offset<2>{ -1, 0 }, Offset<2>{ 1, 0 }, Offset<2>{ 0, -1 }, Offset<2>{ 0, 1 } };
   }
 
-  template <>
   std::vector<Offset<3>>
-  GetNeighborOffsets<3>()
+  GetNeighborOffsets(Tag<3>)
   {
     return { Offset<3>{ -1, 0, 0 }, Offset<3>{ 1, 0, 0 },  Offset<3>{ 0, -1, 0 },
              Offset<3>{ 0, 1, 0 },  Offset<3>{ 0, 0, -1 }, Offset<3>{ 0, 0, 1 } };
