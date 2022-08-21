@@ -43,7 +43,7 @@ Or using the pythonic API:
 
     import itk
     labels = itk.imread('path/to/labels.mha').astype(itk.US)
-    mask = itk.imread('path/to/mask.mha').astype(itk.UC)
+    mask = itk.imread('path/to/mask.mha').astype(itk.US)
     modified_labels = itk.dissolve_mask_image_filter(labels, mask_image=mask)
     itk.imwrite(modified_labels, 'path/to/modified_labels.mha')
 
