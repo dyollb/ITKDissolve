@@ -1,5 +1,5 @@
 itk_wrap_class("itk::DissolveMaskImageFilter" POINTER)
-  itk_wrap_image_filter_combinations("${WRAP_ITK_SCALAR}" "${WRAP_ITK_INT}" 2)
-  itk_wrap_image_filter_combinations("${WRAP_ITK_SCALAR}" "${WRAP_ITK_INT}" 3)
+  itk_wrap_image_filter_combinations("${WRAP_ITK_SCALAR}" "${WRAP_ITK_INT};UC" 2)
+  itk_wrap_image_filter_combinations("${WRAP_ITK_SCALAR}" "${WRAP_ITK_INT};UC" 3)
 itk_end_wrap_class()
 
