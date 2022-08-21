@@ -274,7 +274,7 @@ jobs:
         ls dist
 
     - name: Publish 🐍 Python 📦 package to PyPI
-      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
