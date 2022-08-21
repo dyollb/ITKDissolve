@@ -32,16 +32,16 @@
 
 namespace itk
 {
-template <typename TInputImage, typename TMaskImage, typename TOutputImage>
-DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::DissolveMaskImageFilter()
+template <typename TInputImage, typename TMaskImage>
+DissolveMaskImageFilter<TInputImage, TMaskImage>::DissolveMaskImageFilter()
 {
   this->SetNumberOfRequiredInputs(2);
   m_BackgroundValue = NumericTraits<InputPixelType>::ZeroValue();
 }
 
-template <typename TInputImage, typename TMaskImage, typename TOutputImage>
+template <typename TInputImage, typename TMaskImage>
 void
-DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::GenerateData()
+DissolveMaskImageFilter<TInputImage, TMaskImage>::GenerateData()
 {
   typename OutputImageType::Pointer     output = this->GetOutput();
   typename InputImageType::ConstPointer input = this->GetInput();
@@ -160,9 +160,9 @@ DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::GenerateData()
   }
 }
 
-template <typename TInputImage, typename TMaskImage, typename TOutputImage>
+template <typename TInputImage, typename TMaskImage>
 std::vector<float>
-DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::GetNeighborDeltas(
+DissolveMaskImageFilter<TInputImage, TMaskImage>::GetNeighborDeltas(
   const std::vector<OffsetType> & offsets,
   const SpacingType &             spacing)
 {
@@ -183,9 +183,9 @@ DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::GetNeighborDelta
 /**
  * Standard "PrintSelf" method
  */
-template <typename TInputImage, typename TMaskImage, typename TOutputImage>
+template <typename TInputImage, typename TMaskImage>
 void
-DissolveMaskImageFilter<TInputImage, TMaskImage, TOutputImage>::PrintSelf(std::ostream & os, Indent indent) const
+DissolveMaskImageFilter<TInputImage, TMaskImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
   os << indent

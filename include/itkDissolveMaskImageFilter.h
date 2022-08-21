@@ -34,20 +34,19 @@ namespace itk
  * 
  * \ingroup Dissolve
  */
-template <typename TInputImage, typename TMaskImage, typename TOutputImage = TInputImage>
-class ITK_TEMPLATE_EXPORT DissolveMaskImageFilter : public ImageToImageFilter<TInputImage, TOutputImage>
+template <typename TInputImage, typename TMaskImage>
+class ITK_TEMPLATE_EXPORT DissolveMaskImageFilter : public ImageToImageFilter<TInputImage, TInputImage>
 {
 public:
   /** Extract dimension from input and output image. */
   itkStaticConstMacro(InputImageDimension, unsigned int, TInputImage::ImageDimension);
-  itkStaticConstMacro(OutputImageDimension, unsigned int, TOutputImage::ImageDimension);
 
   static const unsigned int ImageDimension = InputImageDimension;
 
   /** Convenient type aliases for simplifying declarations. */
   using InputImageType = TInputImage;
   using MaskImageType = TMaskImage;
-  using OutputImageType = TOutputImage;
+  using OutputImageType = TInputImage;
 
   /** Standard class type aliases. */
   using Self = DissolveMaskImageFilter;
@@ -97,9 +96,8 @@ public:
 #ifdef ITK_USE_CONCEPT_CHECKING
   // Begin concept checking
   itkConceptMacro(InputEqualityComparableCheck, (Concept::EqualityComparable<InputPixelType>));
-  itkConceptMacro(IntConvertibleToInputCheck, (Concept::Convertible<int, InputPixelType>));
+  itkConceptMacro(IntConvertibleToInputCheck, (Concept::Convertible<int, MaskPixelType>));
   itkConceptMacro(InputConvertibleToOutputCheck, (Concept::Convertible<InputPixelType, OutputPixelType>));
-  itkConceptMacro(SameDimensionCheck, (Concept::SameDimension<InputImageDimension, OutputImageDimension>));
   itkConceptMacro(InputOStreamWritableCheck, (Concept::OStreamWritable<InputPixelType>));
   // End concept checking
 #endif

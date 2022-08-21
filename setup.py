@@ -12,7 +12,7 @@ except ImportError:
 
 setup(
     name="itk-dissolve",
-    version="0.9.1",
+    version="1.0.0",
     author="Bryn Lloyd",
     author_email="lloyd@itis.swiss",
     packages=["itk"],
