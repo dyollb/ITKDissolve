@@ -15,7 +15,7 @@ ITKDissolve
 Overview
 --------
 
-This is a module for the Insight Toolkit (ITK) that provides functionality to discard pixels within a masked region. Unlike masking, the pixels in the masked region are replaced (dissolved) by their nearest pixels outside the mas. This can be useful to clean-up label fields, e.g. to remove small islands/holes or remove entire labels, and replace them by the adjacent labels.
+This is a module for the Insight Toolkit (ITK) that provides functionality to discard pixels within a masked region. Unlike masking, the pixels in the masked region are replaced (dissolved) by their nearest pixels outside the mask. This can be useful to clean-up label fields, e.g. to remove small islands/holes or remove entire labels, and replace them by the adjacent labels.
 
 The module includes a filter called DissolveMaskImageFilter.
 
