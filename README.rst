@@ -20,9 +20,30 @@ This is a module for the Insight Toolkit (ITK) that provides functionality to di
 The module includes a filter called DissolveMaskImageFilter.
 
 .. code-block:: python
+
     import itk
     labels = itk.imread('path/to/labels.mha').astype(itk.US)
     mask = itk.imread('path/to/mask.mha').astype(itk.UC)
+
+    ImageType = type(labels)
+    MaskType = type(mask)
+
+    dissolve = itk.DissolveMaskImageFilter[ImageType, MaskType].New()
+    dissolve.SetInput(labels)
+    dissolve.SetMaskImage(mask)
+    dissolve.Update()
+    modified_labels = dissolve.GetOutput()
+
+    itk.imwrite(modified_labels, 'modified_labels2.mha')
+
+
+Or using the pythonic API:
+
+.. code-block:: python
+
+    import itk
+    labels = itk.imread('path/to/labels.mha').astype(itk.US)
+    mask = itk.imread('path/to/mask.mha').astype(itk.US)
     modified_labels = itk.dissolve_mask_image_filter(labels, mask_image=mask)
     itk.imwrite(modified_labels, 'path/to/modified_labels.mha')
 
