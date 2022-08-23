@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from os import sys
+from pathlib import Path
 
 try:
     from skbuild import setup
@@ -12,14 +13,15 @@ except ImportError:
 
 setup(
     name="itk-dissolve",
-    version="1.0.1",
+    version="1.0.2",
     author="Bryn Lloyd",
     author_email="lloyd@itis.swiss",
     packages=["itk"],
     package_dir={"itk": "itk"},
     download_url=r"https://github.com/dyollb/ITKDissolve",
     description=r"This is a module for the Insight Toolkit (ITK) that provides filters to replace regions within a masked region with the surrounding labels.",
-    long_description="ITK is an open-source, cross-platform library that provides developers with an extensive suite of software tools for image analysis. Developed through extreme programming methodologies, ITK employs leading-edge algorithms for registering and segmenting multidimensional scientific images.",
+    long_description=(Path(__file__).parent / "README.md").read_text(),
+    long_description_content_type="text/markdown",
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
