@@ -162,9 +162,8 @@ DissolveMaskImageFilter<TInputImage, TMaskImage>::GenerateData()
 
 template <typename TInputImage, typename TMaskImage>
 std::vector<float>
-DissolveMaskImageFilter<TInputImage, TMaskImage>::GetNeighborDeltas(
-  const std::vector<OffsetType> & offsets,
-  const SpacingType &             spacing)
+DissolveMaskImageFilter<TInputImage, TMaskImage>::GetNeighborDeltas(const std::vector<OffsetType> & offsets,
+                                                                    const SpacingType &             spacing)
 {
   std::vector<float> deltas;
   for (const auto & offset : offsets)

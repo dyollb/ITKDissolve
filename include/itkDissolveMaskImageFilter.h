@@ -91,9 +91,6 @@ public:
 
   itkGetConstReferenceMacro(BackgroundValue, InputPixelType);
 
-  /** Returns the number of pixels that changed when the filter was executed. */
-  itkGetConstReferenceMacro(NumberOfPixelsChanged, SizeValueType);
-
 #ifdef ITK_USE_CONCEPT_CHECKING
   // Begin concept checking
   itkConceptMacro(InputEqualityComparableCheck, (Concept::EqualityComparable<InputPixelType>));
@@ -123,14 +120,19 @@ protected:
   std::vector<Offset<2>>
   GetNeighborOffsets(Tag<2>)
   {
-    return { Offset<2>{ -1, 0 }, Offset<2>{ 1, 0 }, Offset<2>{ 0, -1 }, Offset<2>{ 0, 1 } };
+    return { Offset<2>{ -1, 0 },  Offset<2>{ 1, 0 },  Offset<2>{ 0, -1 }, Offset<2>{ 0, 1 },
+             Offset<2>{ -1, -1 }, Offset<2>{ 1, -1 }, Offset<2>{ -1, 1 }, Offset<2>{ 1, 1 } };
   }
 
   std::vector<Offset<3>>
   GetNeighborOffsets(Tag<3>)
   {
-    return { Offset<3>{ -1, 0, 0 }, Offset<3>{ 1, 0, 0 },  Offset<3>{ 0, -1, 0 },
-             Offset<3>{ 0, 1, 0 },  Offset<3>{ 0, 0, -1 }, Offset<3>{ 0, 0, 1 } };
+    // 18-connectivity
+    return { Offset<3>{ -1, 0, 0 }, Offset<3>{ 1, 0, 0 }, Offset<3>{ 0, -1, 0 },  Offset<3>{ 0, 1, 0 },
+             Offset<3>{ 0, 0, -1 }, Offset<3>{ 0, 0, 1 }, Offset<3>{ -1, -1, 0 }, Offset<3>{ 1, -1, 0 },
+             Offset<3>{ -1, 1, 0 }, Offset<3>{ 1, 1, 0 }, Offset<3>{ 0, -1, -1 }, Offset<3>{ 0, 1, -1 },
+             Offset<3>{ 0, -1, 1 }, Offset<3>{ 0, 1, 1 }, Offset<3>{ -1, 0, -1 }, Offset<3>{ 1, 0, -1 },
+             Offset<3>{ -1, 0, 1 }, Offset<3>{ 1, 0, 1 } };
   }
 
   std::vector<float>
@@ -143,8 +145,6 @@ private:
   ITK_DISALLOW_COPY_AND_ASSIGN(DissolveMaskImageFilter);
 
   InputPixelType m_BackgroundValue;
-
-  SizeValueType m_NumberOfPixelsChanged = 0;
 };
 } // end namespace itk
 
