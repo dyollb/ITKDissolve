@@ -15,7 +15,7 @@ itk_module(Dissolve
   DEPENDS
     ITKCommon
   COMPILE_DEPENDS
-    ITKImageSources
+    ITKCommon
   TEST_DEPENDS
     ITKTestKernel
     ITKMetaIO
