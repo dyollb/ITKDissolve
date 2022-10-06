@@ -13,7 +13,7 @@ except ImportError:
 
 setup(
     name="itk-dissolve",
-    version="1.0.2",
+    version="1.0.3",
     author="Bryn Lloyd",
     author_email="lloyd@itis.swiss",
     packages=["itk"],
@@ -44,5 +44,5 @@ setup(
     license="MIT",
     keywords="ITK InsightToolkit",
     url=r"https://github.com/dyollb/ITKDissolve",
-    install_requires=[r"itk>=5.2.1.post1"],
+    install_requires=[r"itk-core>=5.2.1.post1"],
 )
