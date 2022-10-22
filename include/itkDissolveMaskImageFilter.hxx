@@ -146,8 +146,8 @@ DissolveMaskImageFilter<TInputImage, TMaskImage>::GenerateData()
       const float     n_dist = dist + deltas[k];
       const IndexType n_id = node.idx + neighbors[k];
 
-      // at boundary check if neighbor is in region
-      if (node.val == this->m_BackgroundValue && !region.IsInside(n_id))
+      // check if neighbor is in region
+      if (!region.IsInside(n_id))
         continue;
 
       if (mask->GetPixel(n_id) && geodesic_distance->GetPixel(n_id) > n_dist)
