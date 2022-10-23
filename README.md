@@ -3,7 +3,8 @@
 [![Build Status](https://github.com/dyollb/ITKDissolve/workflows/Build,%20test,%20package/badge.svg)](https://github.com/dyollb/ITKDissolve/actions)
 [![License]( https://img.shields.io/github/license/dyollb/ITKDissolve?color=blue)](https://github.com/dyollb/ITKDissolve/blob/main/LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/itk-dissolve.svg)](https://badge.fury.io/py/itk-dissolve)
-
+<img src="https://img.shields.io/pypi/dm/itk-dissolve.svg?label=pypi%20downloads&logo=python&logoColor=green"/>
+<img src="https://img.shields.io/badge/Python-%203.7%20|%203.8%20|%203.9%20-3776ab.svg"/>
 ## Overview
 
 This is a module for the Insight Toolkit ([ITK](https://github.com/InsightSoftwareConsortium/ITK)) that provides functionality to discard pixels within a masked region. Unlike masking, the pixels in the masked region are replaced (dissolved) by their nearest pixels outside the mask. This can be useful to clean-up label fields, e.g. to remove small islands/holes or remove entire labels, and replace them by the adjacent labels.
