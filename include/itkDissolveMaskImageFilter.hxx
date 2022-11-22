@@ -92,9 +92,9 @@ DissolveMaskImageFilter<TInputImage, TMaskImage>::GenerateData()
         last_idx = it.GetIndex();
       }
 
-      if (last_value && last_idx != it.GetIndex()) // mask at boundary
+      if (last_value) // mask at boundary
       {
-        seeds.push_back({ it.GetIndex(), this->m_BackgroundValue });
+        seeds.push_back({ last_idx, this->m_BackgroundValue });
       }
     }
   }
