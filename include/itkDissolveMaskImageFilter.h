@@ -142,7 +142,7 @@ protected:
   GenerateData() override;
 
 private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(DissolveMaskImageFilter);
+  ITK_DISALLOW_COPY_AND_MOVE(DissolveMaskImageFilter);
 
   InputPixelType m_BackgroundValue;
 };
